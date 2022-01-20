@@ -1,6 +1,6 @@
 classes= 1
 train  = train.txt
 valid  = val.txt
-names = ./body.names
+names = ./ModelZoo/yolo-fastest-1.1_body/body.names
 backup = model
 
