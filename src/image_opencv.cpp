@@ -881,7 +881,7 @@ extern "C" void save_cv_jpg(mat_cv *img_src, const char *name)
 // ====================================================================
 // Draw Detection
 // ====================================================================
-extern "C" void draw_detections_cv_v3(mat_cv* mat, detection *dets, int num, float thresh, char **names, image **alphabet, int classes, int ext_output)
+extern "C" void draw_detections_cv_v3(mat_cv* mat, detection *dets, int num, float thresh, char **names, image **alphabet, int classes, int ext_output, char* customer_name)
 {
     try {
         cv::Mat *show_img = (cv::Mat*)mat;
@@ -993,7 +993,7 @@ extern "C" void draw_detections_cv_v3(mat_cv* mat, detection *dets, int num, flo
                 static int img_id = 0;
                 img_id++;
                 char image_name[1024];
-                sprintf(image_name, "result_img/%s%d_%f.jpg", names[class_id], dets[i].track_id, b.w*b.h);
+                sprintf(image_name, "result_img/%s_%s%d_%f.jpg", customer_name, names[class_id], dets[i].track_id, b.w*b.h);
                 // CvRect rect = cvRect(pt1.x, pt1.y, pt2.x - pt1.x, pt2.y - pt1.y);
                 // cv::Mat copy_image = (*show_img)(rect);
                 // cv::imwrite(image_name, copy_image);
